@@ -446,7 +446,7 @@ SPEC CHECKSUMS:
   flutter_image_compress_common: ec1d45c362c9d30a3f6a0426c297f47c52007e3e
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
   flutter_local_notifications: df98d66e515e1ca797af436137b4459b160ad8c9
-  flutter_native_splash: e8a1e01082d97a8099d973f919f57904c925008a
+  flutter_native_splash: f71420956eb811e6d310720fee915f1d42852e7a
   flutter_new_badger: e632df3f84b5bbd7f3b37b8122f105edf1b483b3
   flutter_openim_sdk: 77bdd08fb8dda1644a0c150b8ba7324f11b32404
   flutter_webrtc: 75b868e4f9e817c7a9a42ca4b6169063de4eec9f

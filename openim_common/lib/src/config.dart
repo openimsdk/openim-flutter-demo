@@ -45,10 +45,10 @@ class Config {
 
   static const discoverPageURL = 'https://docs.openim.io/';
   static const allowSendMsgNotFriend = '1';
-
-  static const webKey = '75a0da9ec836d573102999e99abf4650';
-  static const webServerKey = '835638634b8f9b4bba386eeec94aa7df';
-  static const locationHost = 'http://location.rentsoft.cn';
+  // amap key
+  static const webKey = 'webKey';
+  static const webServerKey = 'webServerKey';
+  static const locationHost = 'http://location.your-domain';
 
   static OfflinePushInfo offlinePushInfo = OfflinePushInfo(
     title: StrRes.offlineMessage,
