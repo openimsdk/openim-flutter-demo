@@ -247,9 +247,8 @@ OpenIM 为开发者提供开源即时通讯 SDK，作为 Twilio、Sendbird 等�
 
 答：需要配置对应的AMap key，具体请参考[AMap文档](https://lbs.amap.com/)，在代码中修改如下key：
 
-- [webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5c5a7de5986475d503062343b66e9e71d526aea3/openim_common/lib/src/config.dart#L49)
-
-- [webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5c5a7de5986475d503062343b66e9e71d526aea3/openim_common/lib/src/config.dart#L50)。
+- [webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)
+- [webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)
 
 完成配置后即可启用地图功能。
 

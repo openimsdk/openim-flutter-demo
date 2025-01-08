@@ -252,8 +252,8 @@ A: 13.0
 
 Answer: You need to configure the corresponding AMap key. For details, please refer to the [AMap documentation](https://lbs.amap.com/). Modify the following keys in the code:
 
-- [webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5c5a7de5986475d503062343b66e9e71d526aea3/openim_common/lib/src/config.dart#L49)
-- [webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5c5a7de5986475d503062343b66e9e71d526aea3/openim_common/lib/src/config.dart#L50)
+- [webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)
+- [webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)
 
 Once the configuration is complete, the map function can be enabled.
 
