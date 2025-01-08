@@ -60,8 +60,8 @@ Follow the steps below to set up your local development environment:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/openimsdk/open-im-flutter-demo.git
-   cd open-im-flutter-demo
+   git clone https://github.com/openimsdk/openim-flutter-demo.git
+   cd openim-flutter-demo
    ```
 
 2. Install dependencies

@@ -59,8 +59,8 @@ OpenIM 为开发者提供开源即时通讯 SDK，作为 Twilio、Sendbird 等�
 1. 拉取代码
 
 ```bash
-  git clone https://github.com/openimsdk/open-im-flutter-demo.git
-  cd open-im-flutter-demo
+  git clone https://github.com/openimsdk/openim-flutter-demo.git
+  cd openim-flutter-demo
 ```
 
 2. 安装依赖
