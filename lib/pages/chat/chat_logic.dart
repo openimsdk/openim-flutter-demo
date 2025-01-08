@@ -1712,27 +1712,25 @@ class ChatLogic extends SuperController {
     }
   }
 
-  Future<AdvancedMessage> _requestHistoryMessage() {
+  Future<AdvancedMessage> _fetchHistoryMessages() {
     Logger.print(
-        '==========_requestHistoryMessage: is first load: $_isFirstLoad, last min seq: $lastMinSeq, last client id: ${_isFirstLoad ? null : messageList.firstOrNull?.clientMsgID}');
+        '_fetchHistoryMessages: is first load: $_isFirstLoad, last client id: ${_isFirstLoad ? null : messageList.firstOrNull?.clientMsgID}');
     return OpenIM.iMManager.messageManager.getAdvancedHistoryMessageList(
       conversationID: conversationInfo.conversationID,
       count: _pageSize,
       startMsg: _isFirstLoad ? null : messageList.firstOrNull,
-      lastMinSeq: _isFirstLoad ? null : lastMinSeq,
     );
   }
 
   Future<bool> onScrollToBottomLoad() async {
     late List<Message> list;
-    final result = await _requestHistoryMessage();
+    final result = await _fetchHistoryMessages();
     if (result.messageList == null || result.messageList!.isEmpty) {
       _getGroupInfoAfterLoadMessage();
 
       return false;
     }
     list = result.messageList!;
-    lastMinSeq = result.lastMinSeq;
     if (_isFirstLoad) {
       _isFirstLoad = false;
       // remove the message that has been timed down
@@ -1745,35 +1743,23 @@ class ChatLogic extends SuperController {
       list.removeWhere((msg) => _isBeDeleteMessage(msg));
       messageList.insertAll(0, list);
     }
-    var list2Count = 0;
-    // There is currently a bug on the server side. If the number obtained once is less than one page, get it again.
-    if (list.isNotEmpty && list.length < _pageSize) {
-      final result = await _requestHistoryMessage();
-      if (result.messageList?.isNotEmpty == true) {
-        final list2 = result.messageList!;
-        lastMinSeq = result.lastMinSeq;
-        list2.removeWhere((msg) => _isBeDeleteMessage(msg));
-        list2Count = list2.length;
-        messageList.insertAll(0, list2);
-      }
-    }
 
-    return list.length + list2Count >= _pageSize;
+    return result.isEnd != true;
   }
 
   Future<void> _loadHistoryForSyncEnd() async {
     final result = await OpenIM.iMManager.messageManager.getAdvancedHistoryMessageList(
       conversationID: conversationInfo.conversationID,
-      count: messageList.isEmpty ? _pageSize : messageList.length,
+      count: messageList.length < _pageSize ? _pageSize : messageList.length,
       startMsg: null,
-      lastMinSeq: null,
     );
     if (result.messageList == null || result.messageList!.isEmpty) return;
     final list = result.messageList!;
-    lastMinSeq = result.lastMinSeq;
     list.removeWhere((msg) => _isBeDeleteMessage(msg));
+
+    final offset = scrollController.offset;
     messageList.assignAll(list);
-    scrollBottom();
+    scrollController.jumpTo(offset);
   }
 
   bool _isBeDeleteMessage(Message message) {

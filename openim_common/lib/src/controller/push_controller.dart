@@ -13,9 +13,9 @@ import 'firebase_options.dart';
 
 enum PushType { getui, FCM }
 
-const appID = 'openim';
-const appKey = 'openim';
-const appSecret = 'openim';
+const appID = 'your-app-id';
+const appKey = 'your-app-key';
+const appSecret = 'your-app-secret';
 
 class PushController extends GetxController {
   PushType pushType = PushType.getui;

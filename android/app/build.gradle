@@ -62,8 +62,6 @@ android {
 
         manifestPlaceholders = [
                 GETUI_APPID    : "",
-                // 下面是多厂商配置，如需要开通使用请联系技术支持
-                // 如果不需要使用，预留空字段即可
                 XIAOMI_APP_ID  : "",
                 XIAOMI_APP_KEY : "",
                 MEIZU_APP_ID   : "",
@@ -73,7 +71,6 @@ android {
                 OPPO_APP_SECRET: "",
                 VIVO_APP_ID    : "",
                 VIVO_APP_KEY   : "",
-                // 荣耀相关应用参数
                 HONOR_APP_ID   : "",
         ]
     }
@@ -165,20 +162,18 @@ flutter {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    // 个推
-    implementation 'com.getui:gtsdk:3.3.7.0'  //个推SDK
-    implementation 'com.getui:gtc:3.2.16.0'  //个推核心组件
-    // 根据所需厂商选择集成
+    implementation 'com.getui:gtsdk:3.3.7.0'
+    implementation 'com.getui:gtc:3.2.16.0'
     implementation 'com.huawei.hms:push:6.12.0.300'
-    implementation 'com.getui.opt:hwp:3.1.0'   // 华为
-    implementation 'com.getui.opt:xmp:3.2.0'   // 小米
+    implementation 'com.getui.opt:hwp:3.1.0'
+    implementation 'com.getui.opt:xmp:3.2.0'
     implementation('com.assist-v3:oppo:3.1.0') {
         exclude group: 'commons-codec'
-    }   // oppo
-    implementation 'com.assist-v3:vivo:3.1.0'  // vivo
-    implementation 'com.getui.opt:mzp:3.2.0'   // 魅族
-    implementation 'com.getui.opt:ups:3.0.3'   // ups，ups目前支持坚果，索尼，海信手机
-    implementation 'com.getui.opt:honor:3.2.0' // 荣耀
+    }
+    implementation 'com.assist-v3:vivo:3.1.0'
+    implementation 'com.getui.opt:mzp:3.2.0'
+    implementation 'com.getui.opt:ups:3.0.3'
+    implementation 'com.getui.opt:honor:3.2.0'
 
     implementation 'androidx.multidex:multidex:2.0.1'
 

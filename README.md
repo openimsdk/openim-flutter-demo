@@ -250,40 +250,8 @@ A: 13.0
 
 ##### 8. Why is the map not working?
 
-Answer: You need to configure the corresponding AMap key. For details, please refer to the [AMap documentation](https://lbs.amap.com/). Modify the following keys in the code:
-
-- [webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)
-- [webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)
-
-Once the configuration is complete, the map function can be enabled.
+A: [Doc](CONFIGKEY.md)
 
 ##### 9. Why is offline push not working?
 
-###### Client Configuration
-
-###### 1. For Mainland China using Getui (Getui)
-
-Modify the Getui Key for the iOS side in the following file:
-
-- [push_controller.dart](openim_common/lib/src/controller/push_controller.dart)
-
-Modify the Android configuration:
-
-- [build.gradle](android/app/build.gradle)
-
-###### 2. For Overseas regions using FCM (Firebase Cloud Messaging)
-
-Replace the following files according to the FCM integration guide:
-
-- [google-services.json](android/app/google-services.json) (Android platform)
-- [GoogleService-Info.plist](ios/Runner/GoogleService-Info.plist) (iOS platform)
-- [firebase_options.dart](openim_common/lib/src/controller/firebase_options.dart) (Firebase configuration in the Dart project)
-
-###### Server Configuration
-
-Modify the following push-related configuration file on the server:
-
-- [openim-push.yml](https://github.com/openimsdk/open-im-server/blob/main/config/openim-push.yml)
-
-After completing the corresponding client and server configurations as needed, the offline push function can be enabled.
-
+A: [Doc](CONFIGKEY.md)

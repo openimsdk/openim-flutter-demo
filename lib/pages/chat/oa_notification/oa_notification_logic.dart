@@ -36,7 +36,7 @@ class OANotificationLogic extends GetxController {
     super.onReady();
   }
 
-  void loadNotification() async {
+ void loadNotification() async {
     final result = await OpenIM.iMManager.messageManager.getAdvancedHistoryMessageList(
       conversationID: info.conversationID,
       count: 200,

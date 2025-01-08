@@ -241,43 +241,13 @@ OpenIM 为开发者提供开源即时通讯 SDK，作为 Twilio、Sendbird 等�
 ![ios cpu](https://user-images.githubusercontent.com/7018230/155913400-6231329a-aee9-4082-8d24-a25baad55261.png)
 
 ##### 7. iOS 最低运行版本是多少？
+
 答：13.0
 
 ##### 8. 地图为什么不能使用？
 
-答：需要配置对应的AMap key，具体请参考[AMap文档](https://lbs.amap.com/)，在代码中修改如下key：
-
-- [webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)
-- [webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)
-
-完成配置后即可启用地图功能。
+答: [文档](CONFIGKEY.zh-CN.md)
 
 ##### 9. 离线推送为什么不能使用？
 
-###### 客户端配置
-
-###### 1. 中国大陆地区使用个推（Getui）
-
-在代码中找到以下文件并修改对应的iOS侧个推 Key：
-
-- [push_controller.dart](openim_common/lib/src/controller/push_controller.dart)
-
-修改 Android 配置：
-
-- [build.gradle](android/app/build.gradle)
-
-###### 2. 海外地区使用 FCM（Firebase Cloud Messaging）
-
- 根据 FCM 的集成指南，替换以下文件：
-
-- [google-services.json](android/app/google-services.json)（Android 平台）
-- [GoogleService-Info.plist](ios/Runner/GoogleService-Info.plist)（iOS 平台）
-- [firebase_options.dart](openim_common/lib/src/controller/firebase_options.dart)（Dart 项目中的 Firebase 配置）
-
-###### 服务端配置
-
-在服务端修改推送相关配置文件：
-
-- [openim-push.yml](https://github.com/openimsdk/open-im-server/blob/main/config/openim-push.yml)
-
-根据实际需求，完成对应的客户端和服务端配置后即可启用离线推送功能。
+答: [文档](CONFIGKEY.zh-CN.md)
