@@ -60,9 +60,10 @@ Currently, the SDK is designed to directly control the display content of the pu
 
 ```dart
   final offlinePushInfo = OfflinePushInfo(
-  title: "Fill in the title", // The default is the App name
-  desc: "Fill in the description, such as the message content", // The default is "You received a new message"
+  title: "Fill in the title",
+  desc: "Fill in the description, such as the message content",
   );
+  // If you do not customize offlinePushInfo, the title defaults to the app name, and the desc defaults to "You received a new message"
 ```
 
 According to actual needs, you can enable the offline push function after completing the corresponding client and server configurations.
