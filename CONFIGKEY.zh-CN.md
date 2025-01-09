@@ -60,7 +60,7 @@
 
 ```dart
   final offlinePushInfo = OfflinePushInfo(
-    title: "填写标题，例如App名称", // 默认是App名称
+    title: "填写标题", // 默认是App名称
     desc: "填写描述信息，例如消息内容", // 默认是“你收到了一条新消息“
   );
 ```
