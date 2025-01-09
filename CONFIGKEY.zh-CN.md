@@ -59,9 +59,9 @@
 目前SDK的设计是直接由客户端控制推送横幅的展示内容。发送消息时，设置入参[offlinePushInfo](https://github.com/openimsdk/openim-flutter-demo/blob/cc72b6d7ca5f70ca07885857beecec512f904f8c/lib/pages/chat/chat_logic.dart#L543)：
 
 ```dart
-   final offlinePushInfo = OfflinePushInfo(
-    title: "填写标题",
-    desc: "填写描述信息，例如消息内容",
+  final offlinePushInfo = OfflinePushInfo(
+    title: "填写标题", // 默认是App名称
+    desc: "填写描述信息，例如消息内容", // 默认是“你收到了一条新消息“
   );
   // 如果不自定义offlinePushInfo，则title默认为app名称，desc默认为为“你收到了一条新消息”
 ```
