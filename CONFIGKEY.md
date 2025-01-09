@@ -1,26 +1,8 @@
 
 # Common Function Configuration Guide
 
-- [Map](#map)
 - [Offline push](#offlinepush)
-
-## Map
-
-### Configuration Guide
-
-Need to configure the corresponding AMap Key. Please refer to [AMap Document](https://lbs.amap.com/) for details. The code in the project needs to modify the following Key:
-
-- **[webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)**
-- **[webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)**
-
-```dart
-  static const webKey = 'webKey';
-  static const webServerKey = 'webServerKey';
-```
-
-Once the configuration is complete, you can enable the map function.
-
----
+- [Map](#map)
 
 ## Offlinepush
 
@@ -72,17 +54,33 @@ According to the integration guide of [FCM](https://firebase.google.com/docs/clo
 - **[GoogleService-Info.plist](ios/Runner/GoogleService-Info.plist)** (iOS platform)
 - **[firebase_options.dart](openim_common/lib/src/controller/firebase_options.dart)** (Firebase configuration in Dart project)
 
----
-
-### Device push banner settings
+### Offline push banner settings
 
 Currently, the SDK is designed to directly control the display content of the push banner by the client. When sending a message, set the input parameter [offlinePushInfo](https://github.com/openimsdk/openim-flutter-demo/blob/cc72b6d7ca5f70ca07885857beecec512f904f8c/lib/pages/chat/chat_logic.dart#L543):
 
 ```dart
   final offlinePushInfo = OfflinePushInfo(
-  title: "Fill in the title",
-  desc: "Fill in the description information, such as the message content",
+  title: "Fill in the title", // The default is the App name
+  desc: "Fill in the description, such as the message content", // The default is "You received a new message"
   );
 ```
 
 According to actual needs, you can enable the offline push function after completing the corresponding client and server configurations.
+
+---
+
+## Map
+
+### Configuration Guide
+
+Need to configure the corresponding AMap Key. Please refer to [AMap Document](https://lbs.amap.com/) for details. The code in the project needs to modify the following Key:
+
+- **[webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)**
+- **[webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)**
+
+```dart
+  static const webKey = 'webKey';
+  static const webServerKey = 'webServerKey';
+```
+
+Once the configuration is complete, you can enable the map function.

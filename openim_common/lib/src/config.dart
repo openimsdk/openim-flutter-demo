@@ -7,6 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:openim_common/openim_common.dart';
 import 'package:openim_common/src/utils/api_service.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Config {
@@ -35,7 +36,12 @@ class Config {
       statusBarBrightness: brightness,
       statusBarIconBrightness: brightness,
     ));
+
+    final packageInfo = await PackageInfo.fromPlatform();
+    _appName = packageInfo.appName;
   }
+
+  static late String _appName;
 
   static late String cachePath;
   static const uiW = 375.0;
@@ -50,17 +56,16 @@ class Config {
   static const webServerKey = 'webServerKey';
   static const locationHost = 'http://location.your-domain';
 
-  static OfflinePushInfo offlinePushInfo = OfflinePushInfo(
-    title: StrRes.offlineMessage,
-    desc: "",
-    iOSBadgeCount: true,
-    iOSPushSound: '+1',
-  );
+  static OfflinePushInfo get offlinePushInfo => OfflinePushInfo(
+        title: _appName,
+        desc: StrRes.offlineMessage,
+        iOSBadgeCount: true,
+      );
 
   static const friendScheme = "io.openim.app/addFriend/";
   static const groupScheme = "io.openim.app/joinGroup/";
 
-  static const _host = "116.205.175.233";
+  static const _host = "your-server-ip or your-domain";
 
   static const _ipRegex = '((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)';
 

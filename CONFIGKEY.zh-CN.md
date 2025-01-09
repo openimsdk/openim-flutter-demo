@@ -1,26 +1,8 @@
 
 # 常见功能配置指南
 
-- [地图功能](#地图功能)
 - [离线推送功能](#离线推送功能)
-
-## 地图功能
-
-### 配置指南
-
-需要配置对应的 AMap Key。具体请参考 [AMap 文档](https://lbs.amap.com/)，工程中的代码需要修改以下 Key：
-
-- **[webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)**
-- **[webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)**
-
-```dart
-  static const webKey = 'webKey';
-  static const webServerKey = 'webServerKey';
-```
-
-完成配置后即可启用地图功能。
-
----
+- [地图功能](#地图功能)
 
 ## 离线推送功能
 
@@ -72,17 +54,33 @@
 - **[GoogleService-Info.plist](ios/Runner/GoogleService-Info.plist)**（iOS 平台）
 - **[firebase_options.dart](openim_common/lib/src/controller/firebase_options.dart)**（Dart 项目中的 Firebase 配置）
 
----
-
-### 设备推送横幅设置
+### 离线推送横幅设置
 
 目前SDK的设计是直接由客户端控制推送横幅的展示内容。发送消息时，设置入参[offlinePushInfo](https://github.com/openimsdk/openim-flutter-demo/blob/cc72b6d7ca5f70ca07885857beecec512f904f8c/lib/pages/chat/chat_logic.dart#L543)：
 
 ```dart
   final offlinePushInfo = OfflinePushInfo(
-    title: "填写标题",
-    desc: "填写描述信息，例如消息内容",
+    title: "填写标题，例如App名称", // 默认是App名称
+    desc: "填写描述信息，例如消息内容", // 默认是“你收到了一条新消息“
   );
 ```
 
 根据实际需求，完成对应的客户端和服务端配置后即可启用离线推送功能。
+
+---
+
+## 地图功能
+
+### 配置指南
+
+需要配置对应的 AMap Key。具体请参考 [AMap 文档](https://lbs.amap.com/)，工程中的代码需要修改以下 Key：
+
+- **[webKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L49)**
+- **[webServerKey](https://github.com/openimsdk/openim-flutter-demo/blob/5720a10a31a0a9bc5319775f9f4da83d6996dbfe/openim_common/lib/src/config.dart#L50)**
+
+```dart
+  static const webKey = 'webKey';
+  static const webServerKey = 'webServerKey';
+```
+
+完成配置后即可启用地图功能。
