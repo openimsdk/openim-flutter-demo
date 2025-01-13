@@ -69,7 +69,7 @@ class GetuiPushController {
 
   Future<void> _initialize() async {
     try {
-      await Getuiflut.initGetuiSdk;
+      Getuiflut.initGetuiSdk;
 
       if (Platform.isIOS) {
         Getuiflut().startSdk(
