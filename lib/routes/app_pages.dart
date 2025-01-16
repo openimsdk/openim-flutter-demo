@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:openim/pages/near/near_binding.dart';
+import 'package:openim/pages/near/near_view.dart';
 
 import '../pages/chat/chat_binding.dart';
 import '../pages/chat/chat_setup/chat_setup_binding.dart';
@@ -110,6 +112,11 @@ class AppPages {
       name: AppRoutes.splash,
       page: () => SplashPage(),
       binding: SplashBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoutes.near,
+      page: () => NearPage(),
+      binding: NearBinding(),
     ),
     _pageBuilder(
       name: AppRoutes.login,

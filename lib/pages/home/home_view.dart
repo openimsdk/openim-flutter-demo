@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:openim/pages/near/near_view.dart';
 import 'package:openim_common/openim_common.dart';
 
 import '../contacts/contacts_view.dart';
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
           body: IndexedStack(
             index: logic.index.value,
             children: [
+              NearPage(),
               ConversationPage(),
               ContactsPage(),
               MinePage(),
@@ -28,6 +30,16 @@ class HomePage extends StatelessWidget {
           bottomNavigationBar: BottomBar(
             index: logic.index.value,
             items: [
+              BottomBarItem(
+                selectedImgRes: ImageRes.homeTab1Sel,
+                unselectedImgRes: ImageRes.homeTab1Nor,
+                label: StrRes.home,
+                imgWidth: 28.w,
+                imgHeight: 28.h,
+                onClick: logic.switchTab,
+                onDoubleClick: logic.scrollToUnreadMessage,
+                count: logic.unreadMsgCount.value,
+              ),
               BottomBarItem(
                 selectedImgRes: ImageRes.homeTab1Sel,
                 unselectedImgRes: ImageRes.homeTab1Nor,

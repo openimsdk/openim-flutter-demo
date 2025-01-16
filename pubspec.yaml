@@ -105,6 +105,7 @@ dependencies:
     path: openim_common
   openim_live:
     path: openim_live
+  easy_refresh: ^3.4.0
 
 dependency_overrides:
   wechat_assets_picker: ^8.9.0-dev.1

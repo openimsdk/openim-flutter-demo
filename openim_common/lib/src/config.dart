@@ -56,9 +56,10 @@ class Config {
   static const friendScheme = "io.openim.app/addFriend/";
   static const groupScheme = "io.openim.app/joinGroup/";
 
-  static const _host = "127.0.0.1";
+  static const _host = "192.168.31.245";
 
-  static const _ipRegex = '((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)';
+  static const _ipRegex =
+      '((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)';
 
   static bool get _isIP => RegExp(_ipRegex).hasMatch(_host);
 
