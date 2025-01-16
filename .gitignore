@@ -2,3 +2,5 @@
 /.flutter-plugins-dependencies
 /.packages
 /.dart_tool/
+build/
+macos/Flutter/ephemeral/
