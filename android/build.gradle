@@ -24,7 +24,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:7.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.4.2'  // fcm
-        classpath 'com.huawei.agconnect:agcp:1.5.2.300'    // hms
+        classpath 'com.huawei.agconnect:agcp:1.6.0.300'    // hms
     }
 }
 

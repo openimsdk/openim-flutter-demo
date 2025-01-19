@@ -24,6 +24,7 @@ if (flutterVersionName == null) {
 subprojects { afterEvaluate { android { compileSdkVersion 34 } } }
 
 apply plugin: 'com.google.gms.google-services'
+// apply plugin: 'com.huawei.agconnect'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -162,8 +163,8 @@ flutter {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation 'com.getui:gtsdk:3.3.7.0'
-    implementation 'com.getui:gtc:3.2.16.0'
+    implementation 'com.getui:gtsdk:3.3.9.0'
+    implementation 'com.getui:gtc:3.2.18.0'
     implementation 'com.huawei.hms:push:6.12.0.300'
     implementation 'com.getui.opt:hwp:3.1.0'
     implementation 'com.getui.opt:xmp:3.2.0'
