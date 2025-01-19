@@ -17,21 +17,25 @@ const appID = 'your-app-id';
 const appKey = 'your-app-key';
 const appSecret = 'your-app-secret';
 
-class PushController extends GetxController {
+class PushController extends GetxService {
   PushType pushType = PushType.getui;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    if (PushController().pushType == PushType.getui) {
+      GetuiPushController()._addEventHandler();
+      GetuiPushController()._initialize();
+    }
+  }
 
   static void login(String alias, {void Function(String token)? onTokenRefresh}) {
     assert((PushController().pushType == PushType.FCM && onTokenRefresh != null) ||
         (PushController().pushType == PushType.getui && alias.isNotEmpty));
 
     if (PushController().pushType == PushType.getui) {
-      Permissions.notification().then((isGranted) {
-        if (isGranted) {
-          GetuiPushController()._initialize().then((_) {
-            GetuiPushController()._login(alias);
-          });
-        }
-      });
+      GetuiPushController()._login(alias);
     } else {
       FCMPushController()._initialize().then((_) {
         FCMPushController()._getToken().then((token) => onTokenRefresh!(token));
@@ -68,48 +72,57 @@ class GetuiPushController {
   GetuiPushController._();
 
   Future<void> _initialize() async {
-    try {
-      Getuiflut.initGetuiSdk;
-
-      if (Platform.isIOS) {
-        Getuiflut().startSdk(
-          appId: appID,
-          appKey: appKey,
-          appSecret: appSecret,
-        );
+    Permissions.notification().then((isGranted) {
+      if (isGranted) {
+        try {
+          Getuiflut.initGetuiSdk;
+        } catch (e) {
+          e.toString();
+        }
       }
-
-      Getuiflut().addEventHandler(
-        onReceiveClientId: (String message) async {
-          print("flutter onReceiveClientId: $message");
-        },
-        onRegisterDeviceToken: (String message) async {},
-        onReceivePayload: (Map<String, dynamic> message) async {},
-        onReceiveNotificationResponse: (Map<String, dynamic> message) async {},
-        onAppLinkPayload: (String message) async {},
-        onReceiveOnlineState: (bool online) async {},
-        onPushModeResult: (Map<String, dynamic> message) async {},
-        onSetTagResult: (Map<String, dynamic> message) async {},
-        onAliasResult: (Map<String, dynamic> message) async {},
-        onQueryTagResult: (Map<String, dynamic> message) async {},
-        onWillPresentNotification: (Map<String, dynamic> message) async {},
-        onOpenSettingsForNotification: (Map<String, dynamic> message) async {},
-        onGrantAuthorization: (String granted) async {},
-        onReceiveMessageData: (Map<String, dynamic> event) async {
-          print("flutter onReceiveMessageData: $event");
-        },
-        onNotificationMessageArrived: (Map<String, dynamic> event) async {},
-        onNotificationMessageClicked: (Map<String, dynamic> event) async {},
-        onTransmitUserMessageReceive: (Map<String, dynamic> event) async {},
-        onLiveActivityResult: (Map<String, dynamic> event) async {},
-        onRegisterPushToStartTokenResult: (Map<String, dynamic> event) async {},
-      );
-    } catch (e) {
-      e.toString();
-    }
+    });
   }
 
-  void _login(String uid) {
+  void _addEventHandler() {
+    if (Platform.isIOS) {
+      Getuiflut().startSdk(
+        appId: appID,
+        appKey: appKey,
+        appSecret: appSecret,
+      );
+    }
+
+    Getuiflut().addEventHandler(
+      onReceiveClientId: (String message) async {
+        print("flutter onReceiveClientId: $message");
+      },
+      onRegisterDeviceToken: (String message) async {
+        print("flutter onRegisterDeviceToken: $message");
+      },
+      onReceivePayload: (Map<String, dynamic> message) async {},
+      onReceiveNotificationResponse: (Map<String, dynamic> message) async {},
+      onAppLinkPayload: (String message) async {},
+      onReceiveOnlineState: (bool online) async {},
+      onPushModeResult: (Map<String, dynamic> message) async {},
+      onSetTagResult: (Map<String, dynamic> message) async {},
+      onAliasResult: (Map<String, dynamic> message) async {},
+      onQueryTagResult: (Map<String, dynamic> message) async {},
+      onWillPresentNotification: (Map<String, dynamic> message) async {},
+      onOpenSettingsForNotification: (Map<String, dynamic> message) async {},
+      onGrantAuthorization: (String granted) async {},
+      onReceiveMessageData: (Map<String, dynamic> event) async {
+        print("flutter onReceiveMessageData: $event");
+      },
+      onNotificationMessageArrived: (Map<String, dynamic> event) async {},
+      onNotificationMessageClicked: (Map<String, dynamic> event) async {},
+      onTransmitUserMessageReceive: (Map<String, dynamic> event) async {},
+      onLiveActivityResult: (Map<String, dynamic> event) async {},
+      onRegisterPushToStartTokenResult: (Map<String, dynamic> event) async {},
+    );
+  }
+
+  Future<void> _login(String uid) async {
+    print('login user ID: $uid, client id: ${await Getuiflut.getClientId}');
     Getuiflut().bindAlias(uid, 'openim');
   }
 
