@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:openim/core/controller/im_controller.dart';
+import 'package:openim/core/controller/push_controller.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../core/controller/im_controller.dart';
-import '../../core/controller/push_controller.dart';
-
-class NearLogic extends GetxController {
+class PeopleShowLogic extends GetxController {
   final imLogic = Get.find<IMController>();
   final pushLogic = Get.find<PushController>();
   final phoneCtrl = TextEditingController();

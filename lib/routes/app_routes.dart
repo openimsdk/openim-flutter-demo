@@ -64,7 +64,8 @@ abstract class AppRoutes {
   static const verifyPhone = '/verify_phone';
   static const setPassword = '/set_password';
   static const setSelfInfo = '/set_self_info';
-  static const near = '/near';
+  static const nearby = '/nearby';
+  static const peopleShow = '/people_Show';
 }
 
 extension RoutesExtension on String {

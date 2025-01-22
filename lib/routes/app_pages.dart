@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:openim/pages/near/near_binding.dart';
-import 'package:openim/pages/near/near_view.dart';
-
+import 'package:openim/pages/nearby/nearby_binding.dart';
+import 'package:openim/pages/nearby/nearby_view.dart';
+import 'package:openim/pages/nearby/people_show/people_show_binding.dart';
+import 'package:openim/pages/nearby/people_show/people_show_view.dart';
 import '../pages/chat/chat_binding.dart';
 import '../pages/chat/chat_setup/chat_setup_binding.dart';
 import '../pages/chat/chat_setup/chat_setup_view.dart';
@@ -114,9 +115,14 @@ class AppPages {
       binding: SplashBinding(),
     ),
     _pageBuilder(
-      name: AppRoutes.near,
-      page: () => NearPage(),
-      binding: NearBinding(),
+      name: AppRoutes.nearby,
+      page: () => NearbyPage(),
+      binding: NearbyBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoutes.peopleShow,
+      page: () => PeopleShowPage(),
+      binding: PeopleShowBinding(),
     ),
     _pageBuilder(
       name: AppRoutes.login,

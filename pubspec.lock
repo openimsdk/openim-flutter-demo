@@ -86,6 +86,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  background_app_bar:
+    dependency: "direct main"
+    description:
+      name: background_app_bar
+      sha256: c1a7aa9c811f12cce585b701226630796bcd00205ed42c737bd2bcbaaba93fcd
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -158,6 +166,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.9.2"
+  cached_network_image:
+    dependency: transitive
+    description:
+      name: cached_network_image
+      sha256: "28ea9690a8207179c319965c13cd8df184d5ee721ae2ce60f398ced1219cea1f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.1"
+  cached_network_image_platform_interface:
+    dependency: transitive
+    description:
+      name: cached_network_image_platform_interface
+      sha256: "9e90e78ae72caa874a323d78fa6301b3fb8fa7ea76a8f96dc5b5bf79f283bf2f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
+  cached_network_image_web:
+    dependency: transitive
+    description:
+      name: cached_network_image_web
+      sha256: "205d6a9f1862de34b93184f22b9d2d94586b2f05c581d546695e3d8f6a805cd7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   camera:
     dependency: transitive
     description:
@@ -198,6 +230,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.5"
+  card_swiper:
+    dependency: "direct main"
+    description:
+      name: card_swiper
+      sha256: "21e52a144decbf0054e7cfed8bbe46fc89635e6c86b767eaccfe7d5aeba32528"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
   characters:
     dependency: transitive
     description:
@@ -230,14 +270,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.7.5"
-  chip_list:
-    dependency: "direct main"
-    description:
-      name: chip_list
-      sha256: "9c6799907b95fdd5f8f17afa463e8c4ee40d3a0f87baeb323ec29f2671bd94ee"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
   cli_util:
     dependency: transitive
     description:
@@ -833,6 +865,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
+  galleryimage:
+    dependency: "direct main"
+    description:
+      name: galleryimage
+      sha256: ddd6b3d06321c7e1dc8f7d92d34d9225cc47795397a34c564643aac7b2485f8a
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   gesture_password_widget:
     dependency: "direct main"
     description:
@@ -1305,6 +1345,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+  octo_image:
+    dependency: transitive
+    description:
+      name: octo_image
+      sha256: "34faa6639a78c7e3cbe79be6f9f96535867e879748ade7d17c9b1ae7536293bd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   open_filex:
     dependency: "direct main"
     description:
