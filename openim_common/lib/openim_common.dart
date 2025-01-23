@@ -85,3 +85,4 @@ export 'src/widgets/transparent_route.dart';
 export 'src/widgets/unread_count_view.dart';
 export 'src/widgets/verify_code_send_button.dart';
 export 'src/widgets/views.dart';
+export 'src/widgets/tag_view.dart';
