@@ -62,6 +62,7 @@ Currently, the SDK is designed to directly control the display content of the pu
   final offlinePushInfo = OfflinePushInfo(
   title: "Fill in the title",
   desc: "Fill in the description, such as the message content",
+  iOSBadgeCount: true,
   );
   // If you do not customize offlinePushInfo, the title defaults to the app name, and the desc defaults to "You received a new message"
 ```

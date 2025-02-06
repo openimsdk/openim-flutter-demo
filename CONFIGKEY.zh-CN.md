@@ -62,6 +62,7 @@
   final offlinePushInfo = OfflinePushInfo(
     title: "填写标题",
     desc: "填写描述信息，例如消息内容",
+    iOSBadgeCount: true,
   );
   // 如果不自定义offlinePushInfo，则title默认为app名称，desc默认为为“你收到了一条新消息”
 ```
