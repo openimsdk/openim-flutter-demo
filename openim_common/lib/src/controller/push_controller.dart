@@ -30,6 +30,23 @@ class PushController extends GetxService {
     }
   }
 
+  /// Logs in the user with the specified alias to the push notification service.
+  ///
+  /// Depending on the push type configured, it either logs in using the Getui or
+  /// FCM push service.
+  ///
+  /// If using Getui, it binds the alias to the Getui service.
+  ///
+  /// If using FCM, it listens for token refresh events and logs in, invoking the
+  /// provided callback with the new token.
+  ///
+  /// Throws an assertion error if the FCM push type is selected but the
+  /// `onTokenRefresh` callback is not provided.
+  ///
+  /// - Parameters:
+  ///   - alias: The alias to bind to the push notification service for getui.
+  ///   - onTokenRefresh: A callback function that is invoked with the refreshed
+  ///     token when using FCM. Required if the push type is FCM.
   static void login(String alias, {void Function(String token)? onTokenRefresh}) {
     assert((PushController().pushType == PushType.FCM && onTokenRefresh != null) ||
         (PushController().pushType == PushType.getui && alias.isNotEmpty));
@@ -90,6 +107,8 @@ class GetuiPushController {
         appKey: appKey,
         appSecret: appSecret,
       );
+
+      Getuiflut().runBackgroundEnable(0);
     }
 
     Getuiflut().addEventHandler(
