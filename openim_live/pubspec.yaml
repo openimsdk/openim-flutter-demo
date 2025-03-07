@@ -27,13 +27,14 @@ dependencies:
   device_info_plus:
   openim_common:
     path: ../openim_common
-  flutter_openim_sdk: 3.8.3+2
+  flutter_openim_sdk: 3.8.3+3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
 dependency_overrides:
+  flutter_webrtc: 0.12.10
 #  device_info_plus: ^8.1.0
 #  collection: ^1.17.1
 # For information on the generic Dart part of this file, see the
