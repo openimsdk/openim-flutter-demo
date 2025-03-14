@@ -1,0 +1,132 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new Exception("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "io.openim.app.enterprisechat"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        multiDexEnabled true
+
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+        }
+
+        lintOptions {
+            disable 'InvalidPackage'
+            disable "Instantiatable"
+            checkReleaseBuilds false
+            abortOnError false
+        }
+
+        manifestPlaceholders = [
+                GETUI_APPID     : "",
+                // 下面是多厂商配置，如需要开通使用请联系技术支持
+                // 如果不需要使用，预留空字段即可
+                XIAOMI_APP_ID   : "",
+                XIAOMI_APP_KEY  : "",
+                MEIZU_APP_ID    : "",
+                MEIZU_APP_KEY   : "",
+                HUAWEI_APP_ID   : "",
+                OPPO_APP_KEY    : "",
+                OPPO_APP_SECRET : "",
+                VIVO_APP_ID     : "",
+                VIVO_APP_KEY    : "",
+                // 荣耀相关应用参数
+                HONOR_APP_ID   : "",
+        ]
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'openim'
+            keyPassword 'openim'
+            storeFile file('./openim')
+            storePassword 'openim'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        profile {
+            signingConfig signingConfigs.release
+
+        }
+        release {
+            minifyEnabled false
+//            useProguard false
+            shrinkResources false
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "OpenIM_${versionName}(${versionCode})_${buildType.name}_${buildTime()}.apk"
+            }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    // 个推
+    // 根据所需厂商选择集成
+    implementation 'com.huawei.hms:push:5.3.0.301'
+    implementation 'com.getui.opt:hwp:3.1.0'   // 华为
+    implementation 'com.getui.opt:xmp:3.2.0'   // 小米
+    implementation('com.assist-v3:oppo:3.1.0') {
+        exclude group: 'commons-codec'
+    }   // oppo
+    implementation 'com.assist-v3:vivo:3.1.0'  // vivo
+    implementation 'com.getui.opt:mzp:3.2.0'   // 魅族
+    implementation 'com.getui.opt:ups:3.0.3'   // ups，ups目前支持坚果，索尼，海信手机
+    implementation 'com.getui.opt:honor:3.2.0' // 荣耀
+
+//    implementation('com.amap.api:location:5.6.0')
+    implementation 'com.android.support:multidex:1.0.3'
+}
+
+apply plugin: 'com.huawei.agconnect'
+//apply plugin: 'com.google.gms.google-services'
+
+static def buildTime() {
+    return new Date().format("MMddHHmm", TimeZone.getTimeZone("GMT+08:00"))
+}

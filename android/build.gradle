@@ -1,0 +1,59 @@
+buildscript {
+    ext.kotlin_version="1.6.10"
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        maven { url "https://mvn.gt.getui.com/nexus/content/repositories/releases/" }
+        maven { url 'https://developer.huawei.com/repo/' }    // hms
+        maven { url "https://dl.google.com/dl/android/maven2/" }   // fcm
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.columbus.heytapmobi.com/repository/releases/'
+            credentials {
+                username 'nexus'
+                password 'c0b08da17e3ec36c3870fed674a0bcb36abc2e23'
+            }
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.5'  // fcm
+        classpath 'com.huawei.agconnect:agcp:1.5.2.300'    // hms
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        maven { url "https://mvn.gt.getui.com/nexus/content/repositories/releases/" }
+        maven { url 'https://developer.huawei.com/repo/' }    // hms
+        maven { url "https://dl.google.com/dl/android/maven2/" }   // fcm
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.columbus.heytapmobi.com/repository/releases/'
+            credentials {
+                username 'nexus'
+                password 'c0b08da17e3ec36c3870fed674a0bcb36abc2e23'
+            }
+        }
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
