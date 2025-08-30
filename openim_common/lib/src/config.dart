@@ -52,7 +52,7 @@ class Config {
   // amap key
   static const webKey = 'webKey';
   static const webServerKey = 'webServerKey';
-  static const locationHost = 'http://location.your-domain';
+  static const locationHost = 'http://43.160.199.241';
 
   static OfflinePushInfo get offlinePushInfo => OfflinePushInfo(
         title: _appName,
@@ -63,7 +63,7 @@ class Config {
   static const friendScheme = "io.openim.app/addFriend/";
   static const groupScheme = "io.openim.app/joinGroup/";
 
-  static const _host = "your-server-ip or your-domain";
+  static const _host = "43.160.199.241";
 
   static const _ipRegex = '((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)';
 
