@@ -4,8 +4,8 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=1.17.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
   flutter_screenutil: ^5.7.0
   get: ^4.6.5
   dio: ^5.7.0
-  talker_dio_logger: ^4.2.3
+  talker_dio_logger: ^5.0.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   shared_preferences: ^2.0.18
@@ -24,92 +24,95 @@ dependencies:
   image_picker: ^1.0.4
   azlistview: ^2.0.0
   lpinyin: ^2.0.3
-  rxdart: ^0.27.7
+  rxdart: ^0.28.0
   permission_handler: ^11.0.1
-  wechat_assets_picker:
-  wechat_camera_picker: 
-  extended_image: ^8.2.0
+  wechat_assets_picker: ^9.8.0
+  wechat_camera_picker: ^4.4.0
+  extended_image: ^10.0.1
   country_picker: ^2.0.20
-  image_gallery_saver_plus: ^4.0.0-0.alpha
-  file_picker: ^8.0.6
+  image_gallery_saver_plus: ^4.0.1
+  file_picker: ^10.3.3
   open_filex: ^4.3.2
-  lottie: ^2.3.0
+  lottie: ^3.3.1
   qr_code_scanner_plus: ^2.0.6
   qr_flutter: ^4.0.0
-  scan: ^1.6.0
-  image_cropper: ^5.0.0
-  package_info_plus: ^8.0.2
+  # scan: ^1.6.0  # Temporarily disabled due to compatibility issues
+  image_cropper: ^9.1.0
+  package_info_plus: ^8.3.1
   search_keyword_text: ^0.0.2
   animated_text_kit: ^4.2.2
   crypto: ^3.0.2
   url_launcher: ^6.1.10
   common_utils: ^2.1.0
   uri_to_file: ^1.0.0
-  map_launcher: ^3.1.0
+  map_launcher: ^4.4.2
   flutter_spinkit: ^5.1.0
   percent_indicator: ^4.2.3
   flutter_image_compress: ^2.1.0
-  font_awesome_flutter: ^10.4.0
+  font_awesome_flutter: ^10.9.1
   dart_date: ^1.1.1
   video_compress: ^3.1.2
-  just_audio: ^0.9.31
+  just_audio: ^0.10.5
   webview_flutter: ^4.10.0
-  vibration: ^1.7.6
+  webview_flutter_wkwebview: ^3.17.0
+  webview_flutter_android: ^4.3.1
+  # vibration: ^1.9.0  # Temporarily disabled due to compatibility issues
   scroll_to_index: ^3.0.1
-  flutter_screen_lock: 9.1.1
+  flutter_screen_lock: ^9.2.2+2
   local_auth: ^2.2.0
   gesture_password_widget: ^2.0.1
-  sound_mode: ^2.0.2
-  device_info_plus: 10.1.2
-  visibility_detector: ^0.4.0+2
+  sound_mode: ^3.1.1
+  device_info_plus: ^11.3.0
   extended_text_field: ^16.0.0
-  extended_text: ^13.0.2
-  animate_do: ^3.0.2
-  emoji_picker_flutter: ^3.0.0
+  extended_text: ^15.0.2
+  animate_do: ^4.2.0
+  emoji_picker_flutter: ^4.3.0
   should_rebuild: ^1.0.1
-  record: ^5.1.1
-  mime: ^1.0.4
-  flutter_keyboard_visibility: ^5.4.0
+  record: ^6.0.0
+  mime: ^2.0.0
+  flutter_keyboard_visibility: ^6.0.0
   rotated_corner_decoration: ^2.1.0
-  chewie: 1.8.5
+  chewie: ^1.13.0
   video_player: ^2.9.1
   flutter_cache_manager: ^3.3.0
-  syncfusion_flutter_core: ^25.2.7
-  syncfusion_flutter_sliders: ^25.2.7
-  flutter_map: ^6.0.1
+  syncfusion_flutter_core: ^31.1.19
+  syncfusion_flutter_sliders: ^31.1.19
+  flutter_map: ^8.2.1
   pull_to_refresh_new: ^2.0.5
-  geolocator: ^12.0.0
+  geolocator: ^14.0.2
   fixnum: ^1.1.0
-  protobuf: ^3.0.0
-  intl: ^0.19.0
-  focus_detector_v2:
+  protobuf: ^4.2.0
+  intl: ^0.20.2
+  focus_detector_v2: ^3.1.0+1
   flutter_background: ^1.3.0
-  media_kit: ^1.1.11 # Primary package.
-  media_kit_video: 1.2.5 # For video rendering.
-  media_kit_libs_video: 1.0.5 # Native video dependencies.
-  firebase_core: ^3.9.0
-  firebase_messaging: ^15.1.6
+  media_kit: ^1.1.11
+  media_kit_video: ^1.3.0
+  media_kit_libs_video: ^1.0.6
+  firebase_core: 3.15.2
+  firebase_messaging: 15.2.10
   google_api_availability: ^5.0.0
-  
-  flutter_easyloading: 
+  connectivity_plus: ^6.1.5
+  flutter_media_store: ^1.3.1
+  flutter_picker_plus: ^1.1.3
+  screen_brightness: ^2.1.7
+  volume_controller: ^3.4.0
+  flutter_openim_sdk: 3.8.3+3
+
+  flutter_easyloading:
     git:
       url: https://github.com/std-s/flutter_easyloading.git
       ref: 56db1b3
-
-  flutter_picker_plus: ^1.1.3
-  flutter_openim_sdk: 3.8.3+3
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
-  hive_generator: ^2.0.0
-  build_runner: ^2.3.3
+  flutter_lints: ^6.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.15
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # To add assets to your package, add an assets section, like this:
   assets:
     - assets/images/

@@ -28,6 +28,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace "io.openim.live.alert.flutter_openim_live_alert"
     compileSdkVersion 31
 
     compileOptions {

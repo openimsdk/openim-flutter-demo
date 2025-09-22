@@ -1,4 +1,4 @@
-package cn.rentsoft.flutter.openim.business;
+package io.openim;
 
 import io.flutter.embedding.android.FlutterFragmentActivity;
 

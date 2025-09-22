@@ -112,7 +112,7 @@ abstract class _ParticipantWidgetState<T extends ParticipantWidget> extends Stat
         child: activeVideoTrack != null && !activeVideoTrack!.muted
             ? VideoTrackRenderer(
                 activeVideoTrack!,
-                fit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+                fit: VideoViewFit.cover,
               )
             : Container(
                 color: Colors.black,

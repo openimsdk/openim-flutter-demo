@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:audio_session/audio_session.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_new_badger/flutter_new_badger.dart';
+import 'package:app_badge_plus/app_badge_plus.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_openim_sdk/flutter_openim_sdk.dart' as im;
 import 'package:flutter_openim_sdk/flutter_openim_sdk.dart';
@@ -130,12 +130,20 @@ class AppController extends GetxController with UpgradeManger {
     if (count == 0) {
       removeBadge();
     } else {
-      FlutterNewBadger.setBadge(count);
+      AppBadgePlus.isSupported().then((value) {
+        if (value) {
+          AppBadgePlus.updateBadge(count);
+        }
+      });
     }
   }
 
   void removeBadge() {
-    FlutterNewBadger.removeBadge();
+    AppBadgePlus.isSupported().then((value) {
+      if (value) {
+        AppBadgePlus.updateBadge(0);
+      }
+    });
   }
 
   @override

@@ -16,6 +16,11 @@ public final class GeneratedPluginRegistrant {
   private static final String TAG = "GeneratedPluginRegistrant";
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     try {
+      flutterEngine.getPlugins().add(new me.liolin.app_badge_plus.AppBadgePlusPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin app_badge_plus, me.liolin.app_badge_plus.AppBadgePlusPlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new com.ryanheise.audio_session.AudioSessionPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin audio_session, com.ryanheise.audio_session.AudioSessionPlugin", e);
@@ -76,14 +81,19 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin flutter_local_notifications, com.dexterous.flutterlocalnotifications.FlutterLocalNotificationsPlugin", e);
     }
     try {
+      flutterEngine.getPlugins().add(new com.example.flutter_media_store.FlutterMediaStorePlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin flutter_media_store, com.example.flutter_media_store.FlutterMediaStorePlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new net.jonhanson.flutter_native_splash.FlutterNativeSplashPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin flutter_native_splash, net.jonhanson.flutter_native_splash.FlutterNativeSplashPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new ch.simonbraillard.flutter_new_badger.FlutterNewBadgerPlugin());
+      flutterEngine.getPlugins().add(new io.openim.live.alert.flutter_openim_live_alert.FlutterOpenimLiveAlertPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_new_badger, ch.simonbraillard.flutter_new_badger.FlutterNewBadgerPlugin", e);
+      Log.e(TAG, "Error registering plugin flutter_openim_live_alert, io.openim.live.alert.flutter_openim_live_alert.FlutterOpenimLiveAlertPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.openim.flutter_openim_sdk.FlutterOpenimSdkPlugin());
@@ -141,9 +151,9 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin local_auth_android, io.flutter.plugins.localauth.LocalAuthPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new com.alexmiller.map_launcher.MapLauncherPlugin());
+      flutterEngine.getPlugins().add(new dev.fluttered.map_launcher.MapLauncherPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin map_launcher, com.alexmiller.map_launcher.MapLauncherPlugin", e);
+      Log.e(TAG, "Error registering plugin map_launcher, dev.fluttered.map_launcher.MapLauncherPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.alexmercerind.media_kit_libs_android_video.MediaKitLibsAndroidVideoPlugin());
@@ -189,11 +199,6 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new com.llfbandit.record.RecordPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin record_android, com.llfbandit.record.RecordPlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new com.chavesgu.scan.ScanPlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin scan, com.chavesgu.scan.ScanPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.aaassseee.screen_brightness_android.ScreenBrightnessAndroidPlugin());

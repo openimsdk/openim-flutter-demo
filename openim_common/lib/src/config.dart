@@ -58,6 +58,7 @@ class Config {
         title: _appName,
         desc: StrRes.offlineMessage,
         iOSBadgeCount: true,
+        iOSPushSound: 'default',
       );
 
   static const friendScheme = "io.openim.app/addFriend/";

@@ -58,8 +58,8 @@ class ChatApp extends StatelessWidget {
           }),
           side: BorderSide(color: Colors.grey.shade500, width: 1),
         ),
-        dialogTheme: const DialogTheme().copyWith(
-          backgroundColor: Colors.white,
+        dialogTheme: const DialogThemeData().copyWith(
+          backgroundColor: const Color.fromARGB(255, 159, 136, 136),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),

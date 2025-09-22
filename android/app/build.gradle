@@ -1,64 +1,34 @@
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
-    }
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'dev.flutter.flutter-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
-
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-}
-
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
-}
-
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
-if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
-}
-
-subprojects { afterEvaluate { android { compileSdkVersion 34 } } }
-
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 34
-    ndkVersion flutter.ndkVersion
+    namespace "io.openim"
+    compileSdk 35
+    ndkVersion "27.0.12077973"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions { 
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "io.openim.flutter.demo"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 24
-        targetSdkVersion 33
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
-
+        minSdk 23
+        targetSdk 33
+        versionCode flutter.versionCode
+        versionName flutter.versionName
         multiDexEnabled true
 
-        ndk {
-            abiFilters "arm64-v8a"//, "armeabi-v7a", "armeabi", "x86", "x86_64", "mips", "mips64"
-        }
-
-        lintOptions {
-            disable 'InvalidPackage'
-            disable "Instantiatable"
-            checkReleaseBuilds false
-            abortOnError false
-        }
+        ndk { abiFilters "arm64-v8a", "x86_64" }
     }
 
     signingConfigs {
@@ -71,43 +41,33 @@ android {
     }
 
     buildTypes {
-        debug {
-            signingConfig signingConfigs.release
-        }
-        profile {
-            signingConfig signingConfigs.release
-
-        }
+        debug { signingConfig signingConfigs.release }
+        profile { signingConfig signingConfigs.release }
         release {
-//            minifyEnabled false
-//            useProguard false
-//            shrinkResources false
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    android.applicationVariants.all {
-        variant ->
-            variant.outputs.all {
-                outputFileName = "F-DEMO_${versionName}(${versionCode})_${buildType.name}_${buildTime()}.apk"
-            }
-    }
-}
 
-flutter {
-    source '../..'
+    lint {
+        disable 'InvalidPackage'
+        disable "Instantiatable"
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
     implementation 'androidx.multidex:multidex:2.0.1'
 
+    // Firebase
     implementation platform("com.google.firebase:firebase-bom:33.7.0")
-    implementation "com.google.firebase:firebase-messaging" // FCM
+    implementation "com.google.firebase:firebase-messaging"
 }
 
 static def buildTime() {
