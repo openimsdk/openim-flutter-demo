@@ -1,0 +1,1 @@
+ D:\\code\\openim-flutter-demo\\.dart_tool\\flutter_build\\66f6b9981f2392aa7d39fc240d884265\\native_assets.yaml: 
