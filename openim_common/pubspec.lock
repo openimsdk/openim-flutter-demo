@@ -728,10 +728,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_openim_sdk
-      sha256: "09149d60b4c096acab52279365285409123f15f9111d5fc84cc2481b29343a04"
+      sha256: dcda8114919a642285955d59c1730214dda3799afe872d1033ffb26f554d5ac0
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.3+3"
+    version: "3.8.3+hotfix.10.1"
   flutter_picker_plus:
     dependency: "direct main"
     description:

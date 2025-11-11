@@ -23,7 +23,7 @@ dependencies:
   uuid: ^4.2.1
   just_audio: ^0.10.5
   audio_session: ^0.1.25
-  flutter_openim_sdk: 3.8.3+3
+  flutter_openim_sdk: ^3.8.3+hotfix.10.1
 
   openim_common:
     path: ../openim_common

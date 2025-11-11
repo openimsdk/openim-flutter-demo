@@ -96,7 +96,7 @@ dependencies:
   flutter_picker_plus: ^1.1.3
   screen_brightness: ^2.1.7
   volume_controller: ^3.4.0
-  flutter_openim_sdk: 3.8.3+3
+  flutter_openim_sdk: ^3.8.3+hotfix.10.1
 
   flutter_easyloading:
     git:
