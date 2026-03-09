@@ -315,9 +315,9 @@ class _MaterialVideoControlsState extends State<_MaterialVideoControls> {
 
     Future.microtask(() async {
       try {
-        VolumeController().showSystemUI = false;
-        _volumeValue = await VolumeController().getVolume();
-        VolumeController().listener((value) {
+        VolumeController.instance.showSystemUI = false;
+        _volumeValue = await VolumeController.instance.getVolume();
+        VolumeController.instance.addListener((value) {
           if (mounted && !_volumeInterceptEventStream) {
             setState(() {
               _volumeValue = value;
@@ -329,8 +329,8 @@ class _MaterialVideoControlsState extends State<_MaterialVideoControls> {
 
     Future.microtask(() async {
       try {
-        _brightnessValue = await ScreenBrightness().current;
-        ScreenBrightness().onCurrentBrightnessChanged.listen((value) {
+        _brightnessValue = await ScreenBrightness.instance.application;
+        ScreenBrightness.instance.onApplicationScreenBrightnessChanged.listen((value) {
           if (mounted) {
             setState(() {
               _brightnessValue = value;
@@ -343,7 +343,7 @@ class _MaterialVideoControlsState extends State<_MaterialVideoControls> {
 
   Future<void> setVolume(double value) async {
     try {
-      VolumeController().setVolume(value);
+      VolumeController.instance.setVolume(value);
     } catch (_) {}
     setState(() {
       _volumeValue = value;

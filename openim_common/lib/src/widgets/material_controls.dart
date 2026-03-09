@@ -176,7 +176,7 @@ class _MaterialControlsState extends State<CustomMaterialControls> with SingleTi
   Widget _buildOptionsButton() {
     final options = <OptionItem>[
       OptionItem(
-        onTap: () async {
+        onTap: (_) async {
           Navigator.pop(context);
           _onSpeedButtonTap();
         },

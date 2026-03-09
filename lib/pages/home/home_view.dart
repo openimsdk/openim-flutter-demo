@@ -5,7 +5,6 @@ import 'package:openim_common/openim_common.dart';
 import '../contacts/contacts_view.dart';
 import '../conversation/conversation_view.dart';
 import '../mine/mine_view.dart';
-import '../discover/discover_view.dart';
 import 'home_logic.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
@@ -29,15 +28,6 @@ class HomePage extends StatelessWidget {
             icon: _setupIcon(ImageRes.homeTab2Sel.toImage, logic.unhandledCount.value),
             inactiveIcon: _setupIcon(ImageRes.homeTab2Nor.toImage, logic.unhandledCount.value),
             title: StrRes.contacts,
-            textStyle: Styles.ts_0089FF_10sp_semibold,
-          ),
-        ),
-        PersistentTabConfig(
-          screen: DiscoverPage(),
-          item: ItemConfig(
-            icon: ImageRes.homeTab3Sel.toImage,
-            inactiveIcon: ImageRes.homeTab3Nor.toImage,
-            title: StrRes.workbench,
             textStyle: Styles.ts_0089FF_10sp_semibold,
           ),
         ),

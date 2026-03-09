@@ -1,45 +1,49 @@
-buildscript {
-    ext.kotlin_version = '1.9.23'
-    repositories {
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
-        maven { url "https://dl.google.com/dl/android/maven2/" }   // fcm
-        google()
+buildscript { 
+    repositories { 
+        google() 
         mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools:r8:8.3.37")
-        classpath 'com.android.tools.build:gradle:7.3.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.4.2'  // fcm
-    }
+    } 
+    dependencies { 
+        classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0'
+    } 
 }
 
 allprojects {
+    afterEvaluate {
+        if (project.hasProperty("android")) {
+            android { compileSdk = 35 }
+        }
+    }
     repositories {
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
-        maven { url "https://dl.google.com/dl/android/maven2/" }   // fcm
         google()
         mavenCentral()
     }
 }
 
-rootProject.buildDir = '../build'
-subprojects { afterEvaluate { android { compileSdkVersion 34 } } }
+def newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
+rootProject.layout.buildDirectory.set(newBuildDir)
 
 subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    def newSubprojectBuildDir = newBuildDir.dir(project.name)
+    project.layout.buildDirectory.set(newSubprojectBuildDir)
 }
+
 subprojects {
-    project.evaluationDependsOn(':app')
+    project.evaluationDependsOn(":app")
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core-ktx:1.12.0'
+        force 'androidx.core:core:1.12.0'
+        force 'androidx.activity:activity:1.8.2'
+        force 'androidx.activity:activity-ktx:1.8.2'
+        force 'androidx.fragment:fragment:1.6.2'
+        force 'androidx.fragment:fragment-ktx:1.6.2'
+    }
 }
 
 tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+    delete rootProject.layout.buildDirectory
 }

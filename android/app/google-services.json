@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "299075855003",
-    "project_id": "im-fer-c3347",
-    "storage_bucket": "im-fer-c3347.firebasestorage.app"
+    "project_number": "xxx",
+    "project_id": "xxx",
+    "storage_bucket": "xxx"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:299075855003:android:292449dc34ad498109dc3e",
+        "mobilesdk_app_id": "xxx",
         "android_client_info": {
           "package_name": "io.openim.flutter.demo"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCw-ohvxFisvm3Yrb4kCzPBuL0YfZkzI9Q"
+          "current_key": "xxx"
         }
       ],
       "services": {

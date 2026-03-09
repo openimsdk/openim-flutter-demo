@@ -47,7 +47,7 @@ class Config {
 
   static const double textScaleFactor = 1.0;
 
-  static const discoverPageURL = 'https://docs.openim.io/';
+  static const discoverPageURL = 'discover';
   static const allowSendMsgNotFriend = '1';
   // amap key
   static const webKey = 'webKey';
@@ -58,6 +58,7 @@ class Config {
         title: _appName,
         desc: StrRes.offlineMessage,
         iOSBadgeCount: true,
+        iOSPushSound: 'default',
       );
 
   static const friendScheme = "io.openim.app/addFriend/";
